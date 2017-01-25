@@ -8,9 +8,10 @@
 User.create!(name: "Aaron Ortega",
              email: "aaron@arrayschool.com",
              password: "password",
-             password_confirmation: "password")
+             password_confirmation: "password",
+             admin: true)
 
-399.times do |n|
+99.times do |n|
   name = Faker::Superhero.name
   email = Faker::Internet.email(name)
   password = "password"
