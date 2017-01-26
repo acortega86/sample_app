@@ -3,8 +3,12 @@ aaron:
   name: Aaron Ortega
   email: acortega86@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 mike:
   name: Michael Hunt
   email: mikehunt@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
