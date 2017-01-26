@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Thunderdome #{@user.name}!"
-      redirect_to @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Email Verification Sent. Check your spam folder."
+      redirect_to root_url
     else
       render 'new'
     end
