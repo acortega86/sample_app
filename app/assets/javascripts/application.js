@@ -27,7 +27,7 @@ function checkMicropostForm() {
   }
 }
 
-$ ( document ).ready(function() {
+$ ( document ).on( 'turbolinks:load', function() {
   $("#micropost_text_area").on("change keyup paste", checkMicropostForm);
   checkMicropostForm();
 })
