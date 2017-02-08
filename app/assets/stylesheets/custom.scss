@@ -1,177 +1,300 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+// variables, mixins, etc
+
+$gray-medium: #eaeaea;
+
+@mixin boxSizing
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+
+    -mz-box-sizing: border-box;
 }
 
-body {
-  padding-top: 60px;
+/* universal */
+body
+{
+    padding: 60px;
 }
 
-section {
+section
+{
+    overflow: auto;
+}
+
+textarea
+{
+    resize: vertical;
+}
+
+.center
+{
+    text-align: center;
+
+    h1
+    {
+        margin-bottom: 10px;
+    }
+}
+
+// typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    line-height: 1;
+}
+
+h1
+{
+    font-size: 3em;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+    letter-spacing: -2px;
+}
+
+h2
+{
+    font-size: 2em;
+    font-weight: normal;
+
+    margin-bottom: 30px;
+
+    text-align: center;
+    letter-spacing: -1px;
+
+    color: $gray-light;
+}
+
+p
+{
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+// header
+
+#logo
+{
+    font-size: 1.7em;
+    font-weight: bold;
+
+    float: left;
+
+    margin-right: 10px;
+    padding-top: 9px;
+
+    letter-spacing: -1px;
+    text-transform: uppercase;
+
+    color: white;
+
+    &:hover
+    {
+        text-decoration: none;
+
+        color: white;
+    }
+}
+
+// footer
+footer
+{
+    margin-top: 35px;
+    padding-top: 5px;
+
+    color: $gray-light;
+    border-top: 1px solid $gray-medium;
+
+    a
+    {
+        color: $gray;
+    }
+
+    &:hover
+    {
+        color: $gray-darker;
+    }
+
+    small
+    {
+        float: left;
+    }
+
+    ul
+    {
+        float: right;
+
+        list-style: none;
+
+        li
+        {
+            float: left;
+
+            margin-left: 15px;
+        }
+    }
+}
+
+// Misc
+
+.debug_dump
+{
+    float: left;
+    clear: both;
+
+    width: 100%;
+    margin-top: 45px;
+
+    @include boxSizing;
+}
+
+// Sidebar
+
+aside
+{
+    section.user_info
+    {
+        margin-top: 20px;
+    }
+    section
+    {
+        margin: 20px 0 0 0;
+        padding: 10px 0;
+        &:first_child
+        {
+            padding-top: 0;
+
+            border: 0;
+        }
+        span
+        {
+            line-height: 1;
+
+            display: block;
+
+            margin-bottom: 3px;
+        }
+        h1
+        {
+            font-size: 1.4em;
+
+            margin-top: 0;
+            margin-bottom: 3px;
+
+            text-align: left;
+            letter-spacing: -1px;
+        }
+    }
+}
+
+.gravatar
+{
+    float: left;
+
+    margin-right: 10px;
+}
+
+.gravatar_edit
+{
+    margin-top: 15px;
+}
+
+.stats{
   overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
-}
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first_child {
+  margin-top: 0;
+  padding: 0;
+  a{
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child{
+      padding-left: 0;
       border: 0;
-      padding-top: 0;
     }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
+    &:hover{
+      text-decoration: none;
+      color: #337AB7;
     }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
+  }
+  strong{
+    display: block;
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
+.user_avatars{
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar{
+    margin: 1px;
+  }
+  a{
+    padding: 0;
+  }
 }
 
-.gravatar_edit {
-  margin-top: 15px;
+.users.follow{
+  padding: 0;
 }
 
-// forms styling
+// FORM STYLING
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
-  @include box_sizing;
+input,
+textarea,
+select,
+.uneditable-input
+{
+    width: 100%;
+    margin-bottom: 15px;
+
+    border: 1px solid #bbb;
+
+    @include boxSizing;
 }
 
-input {
-  height: auto !important;
+input
+{
+    height: auto !important;
+    padding: 3px 5px;
+    &:focus
+    {
+        outline: none;
+    }
 }
 
-#error_explaination {
-  color: red;
-  ul {
+#error_explanation
+{
     color: red;
-    margin: 0 0 30px 0;
-  }
+    ul
+    {
+        margin: 0 0 30px 0;
+
+        color: red;
+    }
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form_control {
-    color: $state-danger-text;
-  }
+.field_with_errors
+{
+    @extend .has-error;
+    .form-control
+    {
+        color: $state-danger-text;
+    }
 }
 
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
-  span {
+  span{
     margin-left: 20px;
     font-weight: normal;
   }
@@ -182,56 +305,72 @@ input {
   margin-left: 0;
 }
 
-.users {
+// ---------- USERS INDEX
+
+.users{
   list-style: none;
   margin: 0;
-  li {
+
+  li{
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid $gray-lighter;
   }
 }
+
+// ---------- MICROPOSTS
 
 .microposts {
   list-style: none;
   padding: 0;
-  li {
-    padding: 10px 0;
+  li{
+    padding:10px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .user {
+  .user{
     margin-top: 5em;
   }
-  .content {
+  .content{
     display: block;
     margin-left: 60px;
-    img {
+    img{
       display: block;
       padding: 5px 0;
     }
+    // .uploaded_image{
+    //   width: 30%;
+    //   height: auto;
+    // }
   }
-  .timestamp {
-    color: #bbb;
+
+  .timestamp{
+    color: $gray-light;
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
+  .gravatar{
     float: left;
     margin-right: 10px;
     margin-top: 5px;
   }
 }
 
-aside {
-  textarea {
+aside{
+  textarea{
     height: 100px;
     margin-bottom: 5px;
   }
 }
 
-span.picture {
+span.picture{
   margin-top: 10px;
-  input {
+  input{
     border: 0;
   }
+}
+
+// microposts
+
+.micropost_form :focus{
+  outline: none;
 }
